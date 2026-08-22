@@ -13,15 +13,34 @@ public class Board
                 int Index = i * 3 + j;
                 if (j == 2)
                 {
-                    Console.Write(_cells[Index]);
+                    PrintCell(_cells[Index]);
                 }
-                else { Console.Write(_cells[Index] + " | "); }
+                else
+                {
+                    PrintCell(_cells[Index]);
+                    Console.Write(" | ");
+                }
 
 
             }
             Console.WriteLine();
             Console.WriteLine("---------");
         }
+    }
+
+    private static void PrintCell(string cell)
+    {
+        if (cell == "X")
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+        }
+        else if (cell == "O")
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+
+        Console.Write(cell);
+        Console.ResetColor();
     }
     public bool HasWinner()
     {
